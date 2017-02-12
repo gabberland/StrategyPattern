@@ -6,11 +6,13 @@ import java.util.Random;
  */
 public class Disk {
     private Integer index;
+    private boolean up;
     private ArrayList<Integer> numbers;
 
     Disk(){
         index = 0;
         numbers = InitRandoms();
+        up = true;
     }
 
     public void addRandom(){

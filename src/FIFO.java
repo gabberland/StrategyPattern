@@ -5,7 +5,7 @@ import java.util.ArrayList;
  */
 public class FIFO  implements algorithm {
 
-    public Integer nextCandidade(ArrayList<Integer> list, Integer index) {
+    public Integer nextCandidade(ArrayList<Integer> list, Integer index, boolean up) {
         return list.get(0);
     }
 }
