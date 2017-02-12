@@ -55,4 +55,16 @@ public class Disk {
         }
         return array;
     }
+
+    public ArrayList<Integer> getNumbers() {
+        return numbers;
+    }
+
+    public Integer getIndex() {
+        return index;
+    }
+
+    public boolean getUp() {
+        return up;
+    }
 }
