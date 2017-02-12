@@ -15,5 +15,3 @@ public class Elevator extends algorithm {
         return next;
     }
 }
-}
-
