@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Created by oriol on 12/02/17.
@@ -6,7 +8,7 @@ import java.util.ArrayList;
 public class Elevator implements algorithm {
     public Integer nextCandidade(Disk disk) {
         if (disk.getUp() == true){
-            Integer candidate = 10000;
+            Integer candidate = Collections.max(disk.getNumbers());
             for(int i = 0; i < disk.getNumbers().size(); ++i){
                 if(disk.getNumbers().get(i) > disk.getIndex() && disk.getNumbers().get(i) < candidate)
                     candidate = disk.getNumbers().get(i);
@@ -14,7 +16,7 @@ public class Elevator implements algorithm {
             return candidate;
         }
         else{
-            Integer candidate = -1;
+            Integer candidate = Collections.min(disk.getNumbers());
             for(int i = 0; i < disk.getNumbers().size(); ++i){
                 if(disk.getNumbers().get(i) < disk.getIndex() && disk.getNumbers().get(i) > candidate)
                     candidate = disk.getNumbers().get(i);
