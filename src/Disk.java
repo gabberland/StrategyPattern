@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -13,6 +15,17 @@ public class Disk {
         index = 0;
         numbers = InitRandoms();
         up = true;
+    }
+
+    public void checkDirection(){
+        if(up) {
+            if (index == Collections.max(numbers))
+                up = false;
+        }
+        else{
+            if (index == Collections.min(numbers))
+                up = true;
+        }
     }
 
     public void addRandom(){
