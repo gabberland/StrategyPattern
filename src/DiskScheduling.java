@@ -3,14 +3,13 @@ import java.util.ArrayList;
 /**
  * Created by oriol on 12/02/17.
  */
-public class DiskScheduling extends algorithm {
-    @Override
+public class DiskScheduling implements algorithm {
     public Integer nextCandidade(ArrayList<Integer> list, Integer index) {
-        Integer candidate = 100;
+        Integer next = 10000;
         for (int i =0; i < list.size(); ++i){
-            Integer x = list.get(i)-i;
-            if(candidate > Math.abs(x))
-                candidate = Math.abs(x);
+            Integer x = list.get(i)-index;
+            if(next > Math.abs(x))
+                next = Math.abs(x);
         }
         return next;
     }
