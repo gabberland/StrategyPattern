@@ -60,7 +60,7 @@ public class Disk {
      * @param val Number we want to delete of the array.
      */
     public void deleteValue(Integer val){
-        if(numbers.contains(val))
+        if(numbers.contains(val) && numbers.size()==20)
             numbers.remove(val);
     }
 

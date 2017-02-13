@@ -15,11 +15,11 @@ public class DiskScheduling implements algorithm {
      * @return it will return the value closest to the index. The return value will always be a value of the arrylist of random numbers.
      */
     public Integer nextCandidade(Disk disk) {
-        Integer next = 10000;
-        for (int i =0; i < disk.getNumbers().size(); ++i){
-            Integer x = disk.getNumbers().get(i)-disk.getIndex();
-            if(next > Math.abs(x))
-                next = Math.abs(x);
+        Integer next = disk.getNumbers().get(0);
+        for (int i =1; i < disk.getNumbers().size(); ++i){
+            Integer x = disk.getIndex()-disk.getNumbers().get(i);
+            if(Math.abs(disk.getIndex()-next) > Math.abs(x))
+                next = disk.getNumbers().get(i);
         }
         return next;
     }

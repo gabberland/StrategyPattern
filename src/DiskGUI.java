@@ -1,64 +1,111 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
  * Created by Àlex on 10/2/2017.
  */
-
-/**
- * Contains all the frames of the application and the aplication main. The main will be an infinite bucle than always will find
- * a next candidate will set the index slider on it and will generarte a new randomNumber.
- */
 public class DiskGUI extends JFrame {
-    private JRadioButton firstComeFirstServedRadioButton;
-    private JRadioButton shortestSeekTimeFirstRadioButton;
-    private JRadioButton SCANDiskElevatorRadioButton;
-    private JSlider slider1;
     private JPanel panelMain;
-    private JList list;
     private static Integer state;
 
     public DiskGUI() {
-        firstComeFirstServedRadioButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                super.mouseClicked(mouseEvent);
-                state = 0;
 
-            }
-        });
-        shortestSeekTimeFirstRadioButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                state = 1;
-            }
-        });
-        SCANDiskElevatorRadioButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                state = 2;
-            }
-        });
+
     }
 
 
     public static void main(String[] args) {
         // write your code here
         Disk disk = new Disk();
-        state = 0;
         DiskGUI gui = new DiskGUI();
         JFrame frame = new JFrame("Disk");
-        frame.setContentPane(new DiskGUI().panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 200);
+
+        state = 0;
+
+        JSlider slider2 = new JSlider(JSlider.VERTICAL,0,99,0);
+        slider2.setMajorTickSpacing(99);
+        slider2.setMinorTickSpacing(0);
+        slider2.setPaintLabels(true);
+        slider2.setPaintTicks(true);
+
+        java.util.List<Integer> listAux = disk.getNumbers();
+
+
+        JList list = new JList(listAux.toArray());
+
+        JRadioButton fifo = new JRadioButton();
+        JRadioButton scheduled = new JRadioButton();
+        JRadioButton elevator = new JRadioButton();
+        fifo.setSelected(true);
+
+        fifo.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+
+                super.mouseClicked(mouseEvent);
+                state = 0;
+
+            }
+        });
+
+        scheduled.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+
+                super.mouseClicked(mouseEvent);
+                state = 1;
+
+            }
+        });
+
+        elevator.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+
+                super.mouseClicked(mouseEvent);
+                state = 2;
+
+            }
+        });
+
+        fifo.setText("First In First Server");
+        scheduled.setText("Shortest Seek Time First");
+        elevator.setText("SCAN disk elevator");
+
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(fifo);
+        bg.add(scheduled);
+        bg.add(elevator);
+
+        frame.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = GridBagConstraints.RELATIVE;
+        gbc.gridy = GridBagConstraints.RELATIVE;
+        gbc.anchor = GridBagConstraints.WEST;
+
+        JTextArea currentValue = new JTextArea();
+
+
+        frame.add(list, gbc);
+        frame.add(slider2, gbc);
+        frame.add(fifo, gbc.gridy);
+        frame.add(scheduled, gbc.gridy);
+        frame.add(elevator, gbc.gridy);
+
+
+
         frame.pack();
         frame.setVisible(true);
 
-       algorithm algFifo = new FIFO();
-       algorithm algDiskSched = new DiskScheduling();
-       algorithm algElevat = new Elevator();
+        frame.setVisible(true);
+        algorithm algFifo = new FIFO();
+        algorithm algDiskSched = new DiskScheduling();
+        algorithm algElevat = new Elevator();
+
         while(true) {
             Integer candidate;
             if (state == 0) { //First in First Served algorithm
@@ -71,11 +118,28 @@ public class DiskGUI extends JFrame {
             }
             else { //Elevator algorithm
                 candidate = algElevat.nextCandidade(disk);
-                disk.checkDirection();
             }
+            System.out.println("Estat: " + state);
+            System.out.println("Candidat: " + candidate);
+            System.out.println("Posicio index: " + disk.getIndex());
+
+            slider2.setValue(candidate);
+            disk.setIndex(candidate);
+            if(state == 2) disk.checkDirection();
             disk.deleteValue(candidate);
             disk.addRandom();
-            disk.setIndex(candidate);
+
+            JList newList = new JList(disk.getNumbers().toArray());
+
+            list.setModel(newList.getModel());
+
+
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
