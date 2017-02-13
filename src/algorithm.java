@@ -4,6 +4,6 @@ import java.util.ArrayList;
  * Created by oriol on 12/02/17.
  */
 public interface algorithm {
-    public Integer nextCandidade(Disk disk);
+    public  Integer nextCandidade(Disk disk);
 
 }
