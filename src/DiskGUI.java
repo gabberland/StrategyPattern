@@ -27,6 +27,14 @@ public class DiskGUI extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+                state = 1;
+            }
+        });
+        SCANDiskElevatorRadioButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                state = 2;
             }
         });
     }
