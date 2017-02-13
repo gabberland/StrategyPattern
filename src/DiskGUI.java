@@ -5,6 +5,11 @@ import java.awt.event.MouseEvent;
 /**
  * Created by Àlex on 10/2/2017.
  */
+
+/**
+ * Contains all the frames of the application and the aplication main. The main will be an infinite bucle than always will find
+ * a next candidate will set the index slider on it and will generarte a new randomNumber.
+ */
 public class DiskGUI extends JFrame {
     private JRadioButton firstComeFirstServedRadioButton;
     private JRadioButton shortestSeekTimeFirstRadioButton;
