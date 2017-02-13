@@ -5,18 +5,28 @@ import java.awt.event.MouseEvent;
 /**
  * Created by Àlex on 10/2/2017.
  */
-public class DiskGUI {
+public class DiskGUI extends JFrame {
     private JRadioButton firstComeFirstServedRadioButton;
     private JRadioButton shortestSeekTimeFirstRadioButton;
     private JRadioButton SCANDiskElevatorRadioButton;
     private JSlider slider1;
+    private JPanel panelMain;
+    private JList list;
+    private static Integer state;
 
     public DiskGUI() {
         firstComeFirstServedRadioButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
                 super.mouseClicked(mouseEvent);
+                state = 0;
 
+            }
+        });
+        shortestSeekTimeFirstRadioButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
             }
         });
     }
@@ -25,18 +35,14 @@ public class DiskGUI {
     public static void main(String[] args) {
         // write your code here
         Disk disk = new Disk();
-        Integer state = 0; //state = 0 = default algorithm
-       /* SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                DiskGUI gui = new DiskGUI();
-                JFrame frame = new JFrame();
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.getContentPane().add(gui);
-                frame.pack();
-                frame.setVisible(true);
-            }
-        });*/
+        state = 0;
+        DiskGUI gui = new DiskGUI();
+        JFrame frame = new JFrame("Disk");
+        frame.setContentPane(new DiskGUI().panelMain);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+
        algorithm algFifo = new FIFO();
        algorithm algDiskSched = new DiskScheduling();
        algorithm algElevat = new Elevator();
