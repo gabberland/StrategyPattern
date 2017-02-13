@@ -75,7 +75,7 @@ public class DiskGUI extends JFrame {
             }
             disk.deleteValue(candidate);
             disk.addRandom();
-
+            disk.setIndex(candidate);
         }
     }
 }
