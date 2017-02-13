@@ -40,7 +40,6 @@ public class DiskGUI {
        algorithm algFifo = new FIFO();
        algorithm algDiskSched = new DiskScheduling();
        algorithm algElevat = new Elevator();
-
         while(true) {
             Integer candidate;
             if (state == 0) { //First in First Served algorithm
