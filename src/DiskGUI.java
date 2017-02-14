@@ -73,7 +73,7 @@ public class DiskGUI extends JFrame {
             }
         });
 
-        fifo.setText("First In First Server");
+        fifo.setText("First Come First Serve");
         scheduled.setText("Shortest Seek Time First");
         elevator.setText("SCAN disk elevator");
 

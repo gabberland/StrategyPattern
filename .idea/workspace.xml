@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="310f01be-c0aa-4f0c-bdc6-ba8d31732645" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/StrategyPattern/DiskGUI$1.class" afterPath="$PROJECT_DIR$/out/production/StrategyPattern/DiskGUI$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/StrategyPattern/DiskGUI.class" afterPath="$PROJECT_DIR$/out/production/StrategyPattern/DiskGUI.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DiskGUI.java" afterPath="$PROJECT_DIR$/src/DiskGUI.java" />
     </list>
@@ -83,8 +85,8 @@
       <file leaf-file-name="DiskGUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DiskGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+            <state relative-caret-position="102">
+              <caret line="75" column="44" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -574,7 +576,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487029150984</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fixed errors and size">
+      <created>1487031101057</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1487031101057</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -638,7 +647,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="FINISHED" />
-    <option name="LAST_COMMIT_MESSAGE" value="FINISHED" />
+    <MESSAGE value="fixed errors and size" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed errors and size" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -738,8 +748,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DiskGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+        <state relative-caret-position="102">
+          <caret line="75" column="44" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
