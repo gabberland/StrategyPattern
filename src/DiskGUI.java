@@ -21,6 +21,7 @@ public class DiskGUI extends JFrame {
         Disk disk = new Disk();
         DiskGUI gui = new DiskGUI();
         JFrame frame = new JFrame("Disk");
+        frame.setPreferredSize(new Dimension(800, 500));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 200);
 
@@ -88,13 +89,15 @@ public class DiskGUI extends JFrame {
         gbc.anchor = GridBagConstraints.WEST;
 
         JTextArea currentValue = new JTextArea();
+        currentValue.setText(String.valueOf(disk.getNumbers().get(0)));
 
 
         frame.add(list, gbc);
         frame.add(slider2, gbc);
-        frame.add(fifo, gbc.gridy);
-        frame.add(scheduled, gbc.gridy);
-        frame.add(elevator, gbc.gridy);
+        frame.add(fifo, gbc);
+        frame.add(scheduled, gbc);
+        frame.add(elevator, gbc);
+        frame.add(currentValue, gbc);
 
 
 
@@ -119,6 +122,8 @@ public class DiskGUI extends JFrame {
             else { //Elevator algorithm
                 candidate = algElevat.nextCandidade(disk);
             }
+            currentValue.setText("Current value: " + String.valueOf(candidate));
+
             System.out.println("Estat: " + state);
             System.out.println("Candidat: " + candidate);
             System.out.println("Posicio index: " + disk.getIndex());
